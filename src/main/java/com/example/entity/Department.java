@@ -1,14 +1,14 @@
 package com.example.entity;
 
-import java.io.Serializable;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
 /**
  * 部门管理
@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @TableName("department")
-@ApiModel(value = "Department对象", description = "部门管理")
+@ApiModel(value = "部门", description = "部门")
 public class Department implements Serializable {
 
     @Id

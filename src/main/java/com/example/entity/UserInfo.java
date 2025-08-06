@@ -1,15 +1,14 @@
 package com.example.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
 /**
  * 用户信息
@@ -21,7 +20,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @TableName("user_info")
-@ApiModel(value = "UserInfo对象", description = "用户信息")
+@ApiModel(value = "用户信息", description = "用户信息")
 public class UserInfo implements Serializable {
 
     @Id

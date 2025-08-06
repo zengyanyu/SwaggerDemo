@@ -21,11 +21,7 @@ public final class HttpRequestUtil {
      * @return 返回当前请求的 Request 对象
      */
     public static HttpServletRequest getRequest() {
-        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-        if (requestAttributes == null) {
-            return null;
-        }
-        ServletRequestAttributes attributes = (ServletRequestAttributes) requestAttributes;
+        ServletRequestAttributes attributes = getServletRequestAttributes();
         return attributes.getRequest();
     }
 
@@ -35,12 +31,22 @@ public final class HttpRequestUtil {
      * @return 返回当前请求的 Response 对象
      */
     public static HttpServletResponse getResponse() {
+        ServletRequestAttributes attributes = getServletRequestAttributes();
+        return attributes.getResponse();
+    }
+
+    /**
+     * 获取ServletRequestAttributes（Servlet请求属性）
+     *
+     * @return
+     */
+    private static ServletRequestAttributes getServletRequestAttributes() {
+        // org.springframework.web.context.request
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         if (requestAttributes == null) {
             return null;
         }
-        ServletRequestAttributes attributes = (ServletRequestAttributes) requestAttributes;
-        return attributes.getResponse();
+        return (ServletRequestAttributes) requestAttributes;
     }
 
 }
