@@ -1,0 +1,27 @@
+# 通用配置开始
+spring:
+  profiles:
+    active: dev # 需要激活的配置文件，dev,test,pro
+  main:
+    banner-mode: off
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jpa:
+    hibernate:
+      ddl-auto: update
+#    show-sql: true # 这个不起作用，不需要在这里设置
+
+# Mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/**.xml
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #打印SQL语句
+    map-underscore-to-camel-case: true #开启驼峰命名
+    cache-enabled: true  # 开启MyBatis二级缓存
+  global-config:
+    banner: off #关闭mybatisplus启动图标
+
+# 通用配置结束

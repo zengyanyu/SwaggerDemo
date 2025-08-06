@@ -1,0 +1,36 @@
+# 端口
+server:
+  port: 5555
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/database01?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+      username: root
+      password: admin
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+      #其他配置
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,slf4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+logging:
+  file:
+    path: D:/logs # 指定了名称，这个path可以不写，path将会拼接在name前面
+    name: D:/logs/swagger-demo.log
+  level:
+    root: info
