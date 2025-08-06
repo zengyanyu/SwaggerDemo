@@ -1,10 +1,10 @@
 package com.example.controller;
 
-import com.example.dto.UserInfoDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Api(tags = "首页控制器")
@@ -22,10 +22,4 @@ public class IndexController {
         return "hello: " + id;
     }
 
-    @ApiOperation("创建用户")
-    @PostMapping("/api/createUserInfo")
-    public ResponseEntity<UserInfoDto> createUserInfoDto(@RequestBody UserInfoDto model) {
-        // 方法逻辑
-        return null;
-    }
 }
