@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.commons.ResponseData;
 import com.example.config.LogRecord;
 import com.example.entity.Department;
+import com.example.query.DepartmentQueryObject;
 import com.example.service.IDepartmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -65,10 +66,10 @@ public class DepartmentController extends BaseController {
     @LogRecord("部门管理分页查询数据")
     @ApiOperation("部门管理分页查询数据")
     @GetMapping("/page")
-    public Page<Department> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    public Page<Department> page(DepartmentQueryObject queryObject) {
         QueryWrapper<Department> wrapper = new QueryWrapper<>();
         wrapper.orderByDesc("id");
-        return departmentService.page(new Page<>(pageNum, pageSize), wrapper);
+        return departmentService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }
 

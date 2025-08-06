@@ -4,19 +4,15 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.commons.ResponseData;
 import com.example.config.LogRecord;
+import com.example.entity.UserInfo;
+import com.example.query.UserQueryObject;
+import com.example.service.IUserInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import java.util.List;
-
-import com.example.service.IUserInfoService;
-import com.example.entity.UserInfo;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
-import com.example.controller.BaseController;
 
 /**
  * @author zengyanyu
@@ -70,10 +66,10 @@ public class UserInfoController extends BaseController {
     @LogRecord("用户信息分页查询数据")
     @ApiOperation("用户信息分页查询数据")
     @GetMapping("/page")
-    public Page<UserInfo> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    public Page<UserInfo> page(UserQueryObject queryObject) {
         QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
         wrapper.orderByDesc("id");
-        return userInfoService.page(new Page<>(pageNum, pageSize), wrapper);
+        return userInfoService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }
 
