@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>厦门天气预报</title>
+
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .city-info {
+            margin-bottom: 20px;
+        }
+
+        .weather-data table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .weather-data th, .weather-data td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .weather-data th {
+            background-color: #f2f2f2;
+        }
+
+        .aqi-info {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>厦门天气预报</h1>
+    <div class="city-info">
+        <p><strong>城市：</strong>厦门</p>
+        <p><strong>更新时间：</strong><span id="update-time"></span></p>
+    </div>
+    <div class="weather-data">
+        <table>
+            <thead>
+            <tr>
+                <th>日期</th>
+                <th>天气</th>
+                <th>最高温度</th>
+                <th>最低温度</th>
+                <th>湿度</th>
+                <th>风速</th>
+                <th>空气质量</th>
+            </tr>
+            </thead>
+            <tbody id="weather-table-body">
+            </tbody>
+        </table>
+    </div>
+    <div class="aqi-info">
+        <h2>空气质量指数</h2>
+        <p><strong>空气质量：</strong><span id="air-quality"></span></p>
+        <p><strong>PM2.5：</strong><span id="pm25"></span></p>
+        <p><strong>PM10：</strong><span id="pm10"></span></p>
+        <p><strong>建议：</strong><span id="air-tips"></span></p>
+    </div>
+</div>
+<script>
+    // script.js
+    document.addEventListener('DOMContentLoaded', function () {
+        const weatherData = {
+            "code": "200",
+            "msg": "200",
+            "data": {
+                "cityid": "101230201",
+                "city": "厦门",
+                "cityEn": "xiamen",
+                "country": "中国",
+                "countryEn": "China",
+                "update_time": "2025-08-06 13:59:38",
+                "data": [
+                    {
+                        "day": "06日（星期三）",
+                        "date": "2025-08-06",
+                        "week": "星期三",
+                        "wea": "多云",
+                        "wea_img": "yun",
+                        "wea_day": "小雨",
+                        "wea_day_img": "yu",
+                        "wea_night": "多云",
+                        "wea_night_img": "yun",
+                        "tem": "30.7",
+                        "tem1": "30",
+                        "tem2": "26",
+                        "humidity": "76%",
+                        "visibility": "24km",
+                        "pressure": "992",
+                        "win": [
+                            "南风",
+                            "无持续风向"
+                        ],
+                        "win_speed": "3-4级转<3级",
+                        "win_meter": "10km/h",
+                        "sunrise": "05:38",
+                        "sunset": "18:48",
+                        "air": "28",
+                        "air_level": "优",
+                        "air_tips": "",
+                        "phrase": "小雨",
+                        "narrative": "小雨。 最高 31°C。 西南偏南 风 15 到 25 每 km / h 。 降雨几率 70%。  可能有局部洪水。",
+                        "moonrise": "16:40",
+                        "moonset": "02:14",
+                        "moonPhrase": "盈凸月",
+                        "rain": "65",
+                        "uvIndex": "8",
+                        "uvDescription": "很强",
+                        "rain_pcpn": "5.8",
+                        "alarm": []
+                    },
+                    {
+                        "day": "07日（星期四）",
+                        "date": "2025-08-07",
+                        "week": "星期四",
+                        "wea": "多云",
+                        "wea_img": "yun",
+                        "wea_day": "多云",
+                        "wea_day_img": "yun",
+                        "wea_night": "多云",
+                        "wea_night_img": "yun",
+                        "tem": "32",
+                        "tem1": "32",
+                        "tem2": "25",
+                        "humidity": "73%",
+                        "visibility": "",
+                        "pressure": "",
+                        "win": [
+                            "南风",
+                            "无持续风向"
+                        ],
+                        "win_speed": "3-4级转<3级",
+                        "win_meter": "",
+                        "sunrise": "05:38",
+                        "sunset": "18:48",
+                        "air": "30",
+                        "air_level": "优",
+                        "air_tips": "",
+                        "phrase": "上午有阵雨",
+                        "narrative": "上午阵雨。 最高 33°C。 西南偏南 风 10 到 15 每 km / h 。 降雨几率 30%。",
+                        "moonrise": "17:30",
+                        "moonset": "03:11",
+                        "moonPhrase": "盈凸月",
+                        "rain": "33",
+                        "uvIndex": "11",
+                        "uvDescription": "极强",
+                        "rain_pcpn": "0.0"
+                    },
+                    {
+                        "day": "08日（星期五）",
+                        "date": "2025-08-08",
+                        "week": "星期五",
+                        "wea": "多云",
+                        "wea_img": "yun",
+                        "wea_day": "多云",
+                        "wea_day_img": "yun",
+                        "wea_night": "多云",
+                        "wea_night_img": "yun",
+                        "tem": "33",
+                        "tem1": "33",
+                        "tem2": "25",
+                        "humidity": "70%",
+                        "visibility": "",
+                        "pressure": "",
+                        "win": [
+                            "南风",
+                            "无持续风向"
+                        ],
+                        "win_speed": "3-4级转<3级",
+                        "win_meter": "",
+                        "sunrise": "05:39",
+                        "sunset": "18:47",
+                        "air": "37",
+                        "air_level": "优",
+                        "air_tips": "",
+                        "phrase": "局部多云",
+                        "narrative": "少云。 最高 34°C。 西南偏南 风 10 到 15 每 km / h 。",
+                        "moonrise": "18:15",
+                        "moonset": "04:12",
+                        "moonPhrase": "盈凸月",
+                        "rain": "6",
+                        "uvIndex": "11",
+                        "uvDescription": "极强",
+                        "rain_pcpn": "0.0"
+                    },
+                    {
+                        "day": "09日（星期六）",
+                        "date": "2025-08-09",
+                        "week": "星期六",
+                        "wea": "多云",
+                        "wea_img": "yun",
+                        "wea_day": "多云",
+                        "wea_day_img": "yun",
+                        "wea_night": "多云",
+                        "wea_night_img": "yun",
+                        "tem": "33",
+                        "tem1": "33",
+                        "tem2": "25",
+                        "humidity": "68%",
+                        "visibility": "",
+                        "pressure": "",
+                        "win": [
+                            "无持续风向",
+                            "无持续风向"
+                        ],
+                        "win_speed": "<3级",
+                        "win_meter": "",
+                        "sunrise": "05:39",
+                        "sunset": "18:46",
+                        "air": "37",
+                        "air_level": "优",
+                        "air_tips": "",
+                        "phrase": "大部分地区多云",
+                        "narrative": "大部多云。 最高 34°C。 西南偏南 风 15 到 25 每 km / h 。",
+                        "moonrise": "18:56",
+                        "moonset": "05:14",
+                        "moonPhrase": "满月",
+                        "rain": "10",
+                        "uvIndex": "10",
+                        "uvDescription": "很强",
+                        "rain_pcpn": "0.0"
+                    },
+                    {
+                        "day": "10日（星期日）",
+                        "date": "2025-08-10",
+                        "week": "星期日",
+                        "wea": "多云",
+                        "wea_img": "yun",
+                        "wea_day": "多云",
+                        "wea_day_img": "yun",
+                        "wea_night": "多云",
+                        "wea_night_img": "yun",
+                        "tem": "33",
+                        "tem1": "33",
+                        "tem2": "26",
+                        "humidity": "70%",
+                        "visibility": "",
+                        "pressure": "",
+                        "win": [
+                            "南风",
+                            "无持续风向"
+                        ],
+                        "win_speed": "3-4级转<3级",
+                        "win_meter": "",
+                        "sunrise": "05:40",
+                        "sunset": "18:45",
+                        "air": "29",
+                        "air_level": "优",
+                        "air_tips": "",
+                        "phrase": "大部分地区多云",
+                        "narrative": "大部多云。 最高 33°C。 西南偏南 风 15 到 25 每 km / h 。",
+                        "moonrise": "19:34",
+                        "moonset": "06:16",
+                        "moonPhrase": "满月",
+                        "rain": "18",
+                        "uvIndex": "10",
+                        "uvDescription": "很强",
+                        "rain_pcpn": "0.0"
+                    },
+                    {
+                        "day": "11日（星期一）",
+                        "date": "2025-08-11",
+                        "week": "星期一",
+                        "wea": "多云",
+                        "wea_img": "yun",
+                        "wea_day": "多云",
+                        "wea_day_img": "yun",
+                        "wea_night": "多云",
+                        "wea_night_img": "yun",
+                        "tem": "32",
+                        "tem1": "32",
+                        "tem2": "26",
+                        "humidity": "71%",
+                        "visibility": "",
+                        "pressure": "",
+                        "win": [
+                            "无持续风向",
+                            "无持续风向"
+                        ],
+                        "win_speed": "<3级",
+                        "win_meter": "",
+                        "sunrise": "05:40",
+                        "sunset": "18:45",
+                        "air": "33",
+                        "air_level": "优",
+                        "air_tips": "",
+                        "phrase": "上午有阵雨",
+                        "narrative": "上午阵雨。 最高 33°C。 西南偏南 风 15 到 25 每 km / h 。 降雨几率 30%。",
+                        "moonrise": "20:08",
+                        "moonset": "07:17",
+                        "moonPhrase": "亏凸月",
+                        "rain": "31",
+                        "uvIndex": "10",
+                        "uvDescription": "很强",
+                        "rain_pcpn": "0.0"
+                    },
+                    {
+                        "day": "12日（星期二）",
+                        "date": "2025-08-12",
+                        "week": "星期二",
+                        "wea": "小雨转多云",
+                        "wea_img": "yun",
+                        "wea_day": "小雨",
+                        "wea_day_img": "yu",
+                        "wea_night": "多云",
+                        "wea_night_img": "yun",
+                        "tem": "31",
+                        "tem1": "31",
+                        "tem2": "26",
+                        "humidity": "71%",
+                        "visibility": "",
+                        "pressure": "",
+                        "win": [
+                            "无持续风向",
+                            "无持续风向"
+                        ],
+                        "win_speed": "<3级",
+                        "win_meter": "",
+                        "sunrise": "05:41",
+                        "sunset": "18:44",
+                        "air": "29",
+                        "air_level": "优",
+                        "air_tips": "",
+                        "phrase": "上午有阵雨",
+                        "narrative": "上午阵雨。 最高 33°C。 西南偏南 风 10 到 15 每 km / h 。 降雨几率 40%。",
+                        "moonrise": "20:43",
+                        "moonset": "08:17",
+                        "moonPhrase": "亏凸月",
+                        "rain": "35",
+                        "uvIndex": "10",
+                        "uvDescription": "很强",
+                        "rain_pcpn": "3.3"
+                    }
+                ],
+                "nums": 0,
+                "aqi": {
+                    "update_time": "15:08",
+                    "cityid": "101230201",
+                    "city": "厦门市",
+                    "cityEn": "",
+                    "country": "",
+                    "countryEn": "",
+                    "air": "26",
+                    "air_level": "优",
+                    "air_tips": "空气质量令人满意，基本无空气污染。",
+                    "pm25": "15",
+                    "pm25_desc": "优",
+                    "pm10": "26",
+                    "pm10_desc": "优",
+                    "o3": "63",
+                    "o3_desc": "",
+                    "no2": "4",
+                    "no2_desc": "",
+                    "so2": "1",
+                    "so2_desc": "",
+                    "co": "0.4",
+                    "co_desc": "",
+                    "kouzhao": "不用佩戴口罩",
+                    "yundong": "适宜运动",
+                    "waichu": "适宜外出",
+                    "kaichuang": "适宜开窗",
+                    "jinghuaqi": "不需要打开"
+                }
+            }
+        };
+
+        const updateTimeElement = document.getElementById('update-time');
+        const weatherTableBody = document.getElementById('weather-table-body');
+        const airQualityElement = document.getElementById('air-quality');
+        const pm25Element = document.getElementById('pm25');
+        const pm10Element = document.getElementById('pm10');
+        const airTipsElement = document.getElementById('air-tips');
+
+        updateTimeElement.textContent = weatherData.data.update_time;
+        airQualityElement.textContent = weatherData.data.aqi.air_level;
+        pm25Element.textContent = weatherData.data.aqi.pm25;
+        pm10Element.textContent = weatherData.data.aqi.pm10;
+        airTipsElement.textContent = weatherData.data.aqi.air_tips;
+
+        weatherData.data.data.forEach(dayData => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+            <td>${dayData.day}</td>
+            <td>${dayData.wea}</td>
+            <td>${dayData.tem1}°C</td>
+            <td>${dayData.tem2}°C</td>
+            <td>${dayData.humidity}</td>
+            <td>${dayData.win_speed}</td>
+            <td>${dayData.air_level}</td>
+        `;
+            weatherTableBody.appendChild(row);
+        });
+    });
+
+</script>
+</body>
+</html>

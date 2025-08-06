@@ -12,6 +12,18 @@ spring:
       ddl-auto: update
 #    show-sql: true # 这个不起作用，不需要在这里设置
 
+  thymeleaf:
+    cache: true
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    servlet:
+      content-type: text/html
+
 # Mybatis配置
 mybatis:
   mapper-locations: classpath:mapper/**.xml
@@ -25,3 +37,9 @@ mybatis-plus:
     banner: off #关闭mybatisplus启动图标
 
 # 通用配置结束
+
+
+# 天气相关配置
+weather:
+  appId: 52732916
+  appSecret: qdGN90PE
