@@ -24,6 +24,7 @@ import java.io.Serializable;
 public class UserInfo implements Serializable {
 
     @Id
+    @ApiModelProperty("主键ID")
     private String id;
 
     @ApiModelProperty("用户名")
@@ -31,22 +32,5 @@ public class UserInfo implements Serializable {
 
     @ApiModelProperty("密码")
     private String password;
-
-    @ApiModelProperty("头像")
-    private String avatar;
-
-    @ApiModelProperty("token")
-    private String token;
-
-    @ApiModelProperty("状态（0：正常，1：锁定，2：预删）")
-    private String status;
-
-    @ApiModelProperty("状态名称（0：正常，1：锁定，2：预删）")
-    private String statusName;
-
-    @ApiModelProperty("企业ID")
-    private String compId;
-
-    private String isRegister;
 
 }

@@ -24,13 +24,16 @@ import java.io.Serializable;
 public class UserRole implements Serializable {
 
     @Id
+    @ApiModelProperty("主键ID")
     private String id;
 
     @ApiModelProperty("用户ID")
     private String userId;
 
+    @ApiModelProperty("角色编码")
     private String roleCode;
 
+    @ApiModelProperty("角色名称")
     private String roleName;
 
 }
