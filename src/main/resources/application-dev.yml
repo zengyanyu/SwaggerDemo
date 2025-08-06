@@ -34,3 +34,6 @@ logging:
     name: D:/logs/swagger-demo.log
   level:
     root: info
+
+file:
+  uploadFolder: D:/upload/
