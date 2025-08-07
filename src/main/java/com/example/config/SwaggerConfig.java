@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     @Bean
-    public Docket docket() {
+    public Docket docketSystem() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("系统API接口")
                 .select()
@@ -24,7 +24,7 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public Docket docket1() {
+    public Docket docketBusiness() {
         return new Docket(DocumentationType.SWAGGER_2).groupName("业务API接口")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.web"))
