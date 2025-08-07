@@ -3,7 +3,6 @@ package com.example.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -16,12 +15,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     @Bean
-    public Docket api() {
+    public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("所有API").pathMapping("/")
+                .groupName("系统API接口")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
-                .paths(PathSelectors.any())
+                .build().apiInfo(apiInfo());
+    }
+
+    @Bean
+    public Docket docket1() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("业务API接口")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.example.web"))
                 .build().apiInfo(apiInfo());
     }
 
