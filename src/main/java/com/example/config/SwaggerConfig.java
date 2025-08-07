@@ -25,7 +25,8 @@ public class SwaggerConfig {
 
     @Bean
     public Docket docketBusiness() {
-        return new Docket(DocumentationType.SWAGGER_2).groupName("业务API接口")
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("业务API接口")
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.example.web"))
                 .build().apiInfo(apiInfo());
