@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Comment;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -27,9 +28,11 @@ public class Menu implements Serializable {
     @ApiModelProperty("主键ID")
     private Long id;
 
+    @Comment("菜单名称")
     @ApiModelProperty("菜单名称")
     private String name;
 
+    @Comment("菜单路径")
     @ApiModelProperty("菜单路径")
     private String path;
 

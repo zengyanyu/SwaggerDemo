@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 public class CodeGenerator {
 
     public static void main(String[] args) {
-        codeGenerate("user_role");
+        codeGenerate("permission");
     }
 
     /**
@@ -25,7 +25,7 @@ public class CodeGenerator {
      */
     private static void codeGenerate(String... tableNames) {
         FastAutoGenerator.create(
-                "jdbc:mysql://localhost:3306/hola?serverTimezone=GMT%2b8",
+                "jdbc:mysql://localhost:3306/database01?serverTimezone=GMT%2b8",
                 "root",
                 "admin")
                 .globalConfig(builder -> {

@@ -10,7 +10,6 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-#    show-sql: true # 这个不起作用，不需要在这里设置
 
   thymeleaf:
     cache: true
@@ -37,7 +36,6 @@ mybatis-plus:
     banner: off #关闭mybatisplus启动图标
 
 # 通用配置结束
-
 
 # 天气相关配置
 weather:
