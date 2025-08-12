@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
  * 日志记录 Mapper 接口
  *
  * @author zengyanyu
- * @since 2024-11-20
+ * @since 2025-07-30
  */
 @Mapper
 public interface LogRecordMapper extends BaseMapper<LogRecordEntity> {

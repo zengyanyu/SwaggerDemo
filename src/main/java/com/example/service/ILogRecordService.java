@@ -7,7 +7,7 @@ import com.example.entity.LogRecordEntity;
  * 日志记录 服务类
  *
  * @author zengyanyu
- * @since 2024-11-20
+ * @since 2025-07-30
  */
 public interface ILogRecordService extends IService<LogRecordEntity> {
 

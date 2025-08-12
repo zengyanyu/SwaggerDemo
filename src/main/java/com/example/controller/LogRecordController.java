@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 
 /**
  * @author zengyanyu
- * @since 2024-11-20
+ * @since 2025-07-30
  */
 @RestController
 @Api(tags = "日志记录控制器")
