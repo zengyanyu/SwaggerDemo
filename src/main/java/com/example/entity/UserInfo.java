@@ -33,4 +33,7 @@ public class UserInfo implements Serializable {
     @ApiModelProperty("密码")
     private String password;
 
+    @ApiModelProperty("token凭证")
+    private String token;
+
 }
