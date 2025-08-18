@@ -68,7 +68,6 @@ public class UserInfoController extends BaseController {
     @GetMapping("/page")
     public Page<UserInfo> page(UserQueryObject queryObject) {
         QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
         return userInfoService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }

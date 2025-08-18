@@ -68,7 +68,6 @@ public class DepartmentController extends BaseController {
     @GetMapping("/page")
     public Page<Department> page(DepartmentQueryObject queryObject) {
         QueryWrapper<Department> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
         return departmentService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }

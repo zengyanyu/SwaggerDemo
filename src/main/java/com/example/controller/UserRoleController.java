@@ -73,7 +73,6 @@ public class UserRoleController extends BaseController {
     @GetMapping("/page")
     public Page<UserRole> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
         QueryWrapper<UserRole> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
         return userRoleService.page(new Page<>(pageNum, pageSize), wrapper);
     }
 }

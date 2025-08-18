@@ -67,7 +67,6 @@ public class MenuController extends BaseController {
     @GetMapping("/page")
     public Page<Menu> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
         QueryWrapper<Menu> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
         return menuService.page(new Page<>(pageNum, pageSize), wrapper);
     }
 }

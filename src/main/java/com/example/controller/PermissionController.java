@@ -67,7 +67,6 @@ public class PermissionController extends BaseController {
     @GetMapping("/page")
     public Page<Permission> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
         QueryWrapper<Permission> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
         return permissionService.page(new Page<>(pageNum, pageSize), wrapper);
     }
 }
