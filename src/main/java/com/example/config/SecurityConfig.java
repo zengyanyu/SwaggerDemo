@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         // 放行Swagger相关路径
         web.ignoring().antMatchers(
+                "/favicon.ico",
                 "/doc.html",
                 "/swagger-ui.html",
                 "/v2/api-docs",
@@ -42,8 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable() // 禁用 CSRF 保护
                 .authorizeRequests()
                 // 不需要验证的接口
-                .antMatchers("/index.html", "/index1.html",
-                        "/user-info/login", "/user-info/userInfo", "/verification/get"
+                .antMatchers("/index.html",
+                        "/getPerson", "/getPersonByYamlData"
                 ).permitAll()
                 .antMatchers("/**").authenticated() // 其他所有接口需要认证
                 .anyRequest().authenticated() // 所有未匹配的请求也需要认证

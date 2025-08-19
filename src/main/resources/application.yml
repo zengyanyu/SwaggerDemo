@@ -7,10 +7,15 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+    # 内容协商
+    contentnegotiation:
+      favor-parameter: true # 使用参数进行内容协商（默认是没有开启的） ,默认参数名：format
+      parameter-name: type # 修改内容协商的参数名称
+      media-types:
+        yaml: text/yaml # 增加一种新的内容类型
   jpa:
     hibernate:
       ddl-auto: update
-
   thymeleaf:
     cache: true
     prefix: classpath:/templates/
