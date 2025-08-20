@@ -39,6 +39,7 @@ mybatis-plus:
     cache-enabled: true  # 开启MyBatis二级缓存
   global-config:
     banner: off #关闭mybatisplus启动图标
+  type-aliases-package: com.example.entity
 
 # 通用配置结束
 

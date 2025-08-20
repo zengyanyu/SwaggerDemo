@@ -1,6 +1,6 @@
 package com.example.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
@@ -10,6 +10,7 @@ import org.hibernate.annotations.Comment;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * 菜单
@@ -24,6 +25,7 @@ import java.io.Serializable;
 @ApiModel(value = "菜单", description = "菜单")
 public class Menu implements Serializable {
 
+    @TableId(type = IdType.ASSIGN_ID)// 默认雪花算法（分布式ID）
     @Id
     @ApiModelProperty("主键ID")
     private Long id;
@@ -35,5 +37,11 @@ public class Menu implements Serializable {
     @Comment("菜单路径")
     @ApiModelProperty("菜单路径")
     private String path;
+
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+
+    @TableField(fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime;
 
 }
