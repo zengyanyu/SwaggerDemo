@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.List;
@@ -48,7 +47,7 @@ public class LogRecordController extends BaseController {
 
     @ApiOperation("导出Excel文件")
     @GetMapping("/export")
-    public void export(HttpServletResponse response) throws IOException {
+    public void export() throws IOException {
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");
         // 对中文编码
