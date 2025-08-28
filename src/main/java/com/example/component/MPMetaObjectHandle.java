@@ -1,10 +1,9 @@
 package com.example.component;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.example.util.DateUtils;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
 
 @Component
 public class MPMetaObjectHandle implements MetaObjectHandler {
@@ -20,12 +19,12 @@ public class MPMetaObjectHandle implements MetaObjectHandler {
     // 保存填充
     @Override
     public void insertFill(MetaObject metaObject) {
-        metaObject.setValue("createTime", LocalDateTime.now());
+        metaObject.setValue("createTime", DateUtils.getCurrentTime());
     }
 
     // 修改填充
     @Override
     public void updateFill(MetaObject metaObject) {
-        metaObject.setValue("updateTime", LocalDateTime.now());
+        metaObject.setValue("updateTime", DateUtils.getCurrentTime());
     }
 }
