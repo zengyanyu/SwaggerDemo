@@ -4,6 +4,10 @@ spring:
     name: swagger-demo
   profiles:
     active: dev # 需要激活的配置文件，dev,test,pro
+  servlet:
+    multipart:
+      max-request-size: 10MB
+      max-file-size: 10MB
   main:
     banner-mode: off
   mvc:

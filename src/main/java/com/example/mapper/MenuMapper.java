@@ -2,7 +2,9 @@ package com.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.entity.Menu;
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.cache.decorators.FifoCache;
 
 /**
  * 菜单 Mapper 接口
@@ -11,6 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2025-07-30
  */
 @Mapper
+@CacheNamespace(flushInterval = 60000, size = 512, eviction = FifoCache.class)
 public interface MenuMapper extends BaseMapper<Menu> {
 
 }

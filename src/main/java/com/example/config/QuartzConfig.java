@@ -16,16 +16,16 @@ public class QuartzConfig {
                 .build();
     }
 
-    @Bean
-    public Trigger itemJobTrigger() {
-        return TriggerBuilder.newTrigger()
-                .forJob(itemJobDetail())
-                .withIdentity("itemJobTrigger", "group1")
-                // 每天凌晨两点执行一次
-                // CronScheduleBuilder.cronSchedule("0 0 2 * * ?")
-                // 每3妙执行一次
-                .withSchedule(CronScheduleBuilder.cronSchedule("0/3 * * * * ?"))
-                .build();
-    }
+//    @Bean
+//    public Trigger itemJobTrigger() {
+//        return TriggerBuilder.newTrigger()
+//                .forJob(itemJobDetail())
+//                .withIdentity("itemJobTrigger", "group1")
+//                // 每天凌晨两点执行一次
+//                // CronScheduleBuilder.cronSchedule("0 0 2 * * ?")
+//                // 每3妙执行一次
+//                .withSchedule(CronScheduleBuilder.cronSchedule("0/3 * * * * ?"))
+//                .build();
+//    }
 
 }

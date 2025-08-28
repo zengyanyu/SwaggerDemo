@@ -1,0 +1,213 @@
+{
+  "Data": [
+    {
+      "Id": 512,
+      "CategoryKey": "SoybeanMilkMachine",
+      "CategoryName": "豆浆机",
+      "ParentId": 507,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"power_switch\",\"name\":\"电源开关\",\"desc\":\"控制豆浆机电源\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/0b190b61ad422d3d07408fed32186b44/%E8%B1%86%E6%B5%86%E6%9C%BA.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/0b190b61ad422d3d07408fed32186b44/%E8%B1%86%E6%B5%86%E6%9C%BA.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 1,
+      "CategoryKey": "UserDefined",
+      "CategoryName": "用户自定义",
+      "ParentId": 0,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/05ca75c84bb7c1e2dbc9d762cf3af1f1.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/05ca75c84bb7c1e2dbc9d762cf3af1f1.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 513,
+      "CategoryKey": "Oven",
+      "CategoryName": "烤箱",
+      "ParentId": 507,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"power_switch\",\"name\":\"电源开关\",\"desc\":\"控制烤箱的电源\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}},{\"id\":\"child_lock\",\"name\":\"童锁\",\"desc\":\"防止儿童误操作\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}},{\"id\":\"operation_control\",\"name\":\"运行控制\",\"desc\":\"控制烤箱的运行\",\"mode\":\"rw\",\"define\":{\"type\":\"enum\",\"mapping\":{\"0\":\"启动\",\"1\":\"暂停\",\"2\":\"取消\"}}},{\"id\":\"mode\",\"name\":\"模式控制\",\"desc\":\"控制烤箱的模式\",\"mode\":\"rw\",\"define\":{\"type\":\"enum\",\"mapping\":{\"0\":\"烹饪\",\"1\":\"预热\",\"2\":\"保温\"}}},{\"id\":\"work_state\",\"name\":\"工作状态\",\"desc\":\"查看烤箱的工作状态\",\"mode\":\"r\",\"define\":{\"type\":\"enum\",\"mapping\":{\"0\":\"待机\",\"1\":\"工作中\",\"2\":\"预约中\",\"3\":\"保温中\",\"4\":\"预热中\",\"5\":\"暂停\",\"6\":\"完成\",\"7\":\"结束\"}}},{\"id\":\"TimeOfAppointment\",\"name\":\"预约时间\",\"desc\":\"预约时间设置\",\"mode\":\"rw\",\"define\":{\"type\":\"int\",\"unit\":\"min\",\"step\":\"1\",\"min\":\"0\",\"max\":\"360\",\"start\":\"0\"}},{\"id\":\"work_time\",\"name\":\"工作时间\",\"desc\":\"工作时间设置\",\"mode\":\"rw\",\"define\":{\"type\":\"int\",\"unit\":\"min\",\"step\":\"1\",\"min\":\"0\",\"max\":\"120\",\"start\":\"0\"}},{\"id\":\"remaining_time\",\"name\":\"剩余工作时间\",\"desc\":\"剩余工作时间查看\",\"mode\":\"r\",\"define\":{\"type\":\"int\",\"unit\":\"min\",\"step\":\"1\",\"min\":\"0\",\"max\":\"120\",\"start\":\"0\"}},{\"id\":\"temperature_set\",\"name\":\"温度设置\",\"desc\":\"设置温度\",\"mode\":\"rw\",\"define\":{\"type\":\"int\",\"unit\":\"℃\",\"step\":\"1\",\"min\":\"90\",\"max\":\"230\",\"start\":\"90\"}},{\"id\":\"temperature\",\"name\":\"当前温度\",\"desc\":\"当前温度\",\"mode\":\"r\",\"define\":{\"type\":\"int\",\"unit\":\"℃\",\"step\":\"1\",\"min\":\"0\",\"max\":\"230\",\"start\":\"0\"}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/5e9f6834d3c69832aba4b4b9ab3ccff7/%E7%83%A4%E7%AE%B1.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/5e9f6834d3c69832aba4b4b9ab3ccff7/%E7%83%A4%E7%AE%B1.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 514,
+      "CategoryKey": "BreadMachine",
+      "CategoryName": "面包机",
+      "ParentId": 507,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"power_switch\",\"name\":\"电源开关\",\"desc\":\"控制面包机电源\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/7b76f98361088712bac287a1d08c457a/%E9%9D%A2%E5%8C%85%E6%9C%BA.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/7b76f98361088712bac287a1d08c457a/%E9%9D%A2%E5%8C%85%E6%9C%BA.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 3,
+      "CategoryKey": "Lighting",
+      "CategoryName": "路灯照明",
+      "ParentId": 11,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"power_switch\",\"name\":\"电灯开关\",\"desc\":\"控制电灯开灭\",\"required\":true,\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}},{\"id\":\"color\",\"name\":\"颜色\",\"desc\":\"灯光颜色\",\"mode\":\"rw\",\"define\":{\"type\":\"enum\",\"mapping\":{\"0\":\"Red\",\"1\":\"Green\",\"2\":\"Blue\"}}},{\"id\":\"brightness\",\"name\":\"亮度\",\"desc\":\"灯光亮度\",\"mode\":\"rw\",\"define\":{\"type\":\"int\",\"unit\":\"%\",\"step\":\"1\",\"min\":\"0\",\"max\":\"100\",\"start\":\"1\"}},{\"id\":\"name\",\"name\":\"灯位置名称\",\"desc\":\"灯位置名称：书房、客厅等\",\"mode\":\"rw\",\"required\":false,\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/2f126a03c792a3ccbc0df5b4bca244d4.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/2f126a03c792a3ccbc0df5b4bca244d4.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 515,
+      "CategoryKey": "ElectricKettle",
+      "CategoryName": "电水壶",
+      "ParentId": 507,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"work_switch\",\"name\":\"工作开关\",\"desc\":\"控制电水壶是否运行\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}},{\"id\":\"holding_switch\",\"name\":\"保温开关\",\"desc\":\"控制电水壶是否进行保温\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}},{\"id\":\"water_state\",\"name\":\"水量状态\",\"desc\":\"电水壶是否缺水\",\"mode\":\"r\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"不缺水\",\"1\":\"缺水\"}}},{\"id\":\"work_state\",\"name\":\"工作状态\",\"desc\":\"电水壶的工作状态\",\"mode\":\"r\",\"define\":{\"type\":\"enum\",\"mapping\":{\"0\":\"待机\",\"1\":\"加热中\",\"2\":\"保温中\",\"3\":\"暂停\",\"4\":\"完成\"}}},{\"id\":\"temperature\",\"name\":\"当前温度\",\"desc\":\"当前的水温\",\"mode\":\"r\",\"define\":{\"type\":\"int\",\"unit\":\"℃\",\"step\":\"1\",\"min\":\"0\",\"max\":\"100\",\"start\":\"0\"}},{\"id\":\"temperature_set\",\"name\":\"温度设置\",\"desc\":\"设置温度\",\"mode\":\"rw\",\"define\":{\"type\":\"int\",\"unit\":\"℃\",\"step\":\"1\",\"min\":\"25\",\"max\":\"100\",\"start\":\"0\"}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/c5ca9395648f22daf236e047cf9487a8/%E7%94%B5%E6%B0%B4%E5%A3%B6.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/c5ca9395648f22daf236e047cf9487a8/%E7%94%B5%E6%B0%B4%E5%A3%B6.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 516,
+      "CategoryKey": "ElectromagneticFurnace",
+      "CategoryName": "电磁炉",
+      "ParentId": 507,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"power_switch\",\"name\":\"电源开关\",\"desc\":\"控制电磁炉的电源\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/b9c0bbf079928362102c9657f551c3ea/%E7%94%B5%E7%A3%81%E7%82%89.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/b9c0bbf079928362102c9657f551c3ea/%E7%94%B5%E7%A3%81%E7%82%89.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 517,
+      "CategoryKey": "Sterilizer",
+      "CategoryName": "消毒柜",
+      "ParentId": 507,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"power_switch\",\"name\":\"电源开关\",\"desc\":\"控制消毒柜的电源\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/496336f1f5760fc72faba7506b167091/%E6%B6%88%E6%AF%92%E6%9F%9C.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/496336f1f5760fc72faba7506b167091/%E6%B6%88%E6%AF%92%E6%9F%9C.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 518,
+      "CategoryKey": "Dishwasher",
+      "CategoryName": "洗碗机",
+      "ParentId": 507,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"properties\":[{\"id\":\"work_switch\",\"name\":\"工作开关\",\"desc\":\"控制洗碗机是否运行\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}},{\"id\":\"child_lock\",\"name\":\"童锁\",\"desc\":\"防止儿童误操作\",\"mode\":\"rw\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"关\",\"1\":\"开\"}}},{\"id\":\"work_state\",\"name\":\"工作状态\",\"desc\":\"洗碗机工作状态\",\"mode\":\"r\",\"define\":{\"type\":\"enum\",\"mapping\":{\"0\":\"预约中\",\"1\":\"洗碗中\",\"2\":\"暂停\",\"3\":\"已完成\"}}},{\"id\":\"mode\",\"name\":\"模式设置\",\"desc\":\"洗碗机模式设置\",\"mode\":\"rw\",\"define\":{\"type\":\"enum\",\"mapping\":{\"0\":\"碗筷\",\"1\":\"锅具\",\"2\":\"混合\"}}},{\"id\":\"temperature\",\"name\":\"当前温度\",\"desc\":\"当前的水温\",\"mode\":\"r\",\"define\":{\"type\":\"int\",\"unit\":\"℃\",\"step\":\"1\",\"min\":\"0\",\"max\":\"80\",\"start\":\"0\"}},{\"id\":\"temperature_set\",\"name\":\"温度设置\",\"desc\":\"设置温度\",\"mode\":\"rw\",\"define\":{\"type\":\"int\",\"unit\":\"℃\",\"step\":\"1\",\"min\":\"25\",\"max\":\"50\",\"start\":\"0\"}}],\"events\":[{\"id\":\"status_report\",\"name\":\"DeviceStatus\",\"desc\":\"Report the device status\",\"type\":\"info\",\"required\":false,\"params\":[{\"id\":\"status\",\"name\":\"running_state\",\"desc\":\"Report current device running state\",\"define\":{\"type\":\"bool\",\"mapping\":{\"0\":\"normal\",\"1\":\"fault\"}}},{\"id\":\"message\",\"name\":\"Message\",\"desc\":\"Some extra message\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}}]},{\"id\":\"low_voltage\",\"name\":\"LowVoltage\",\"desc\":\"Alert for device voltage is low\",\"type\":\"alert\",\"required\":false,\"params\":[{\"id\":\"voltage\",\"name\":\"Voltage\",\"desc\":\"Current voltage\",\"define\":{\"type\":\"float\",\"unit\":\"V\",\"step\":\"1\",\"min\":\"0.0\",\"max\":\"24.0\",\"start\":\"1\"}}]},{\"id\":\"hardware_fault\",\"name\":\"Hardware_fault\",\"desc\":\"Report hardware fault\",\"type\":\"fault\",\"required\":false,\"params\":[{\"id\":\"name\",\"name\":\"Name\",\"desc\":\"Name like: memory,tf card, censors ...\",\"define\":{\"type\":\"string\",\"min\":\"0\",\"max\":\"64\"}},{\"id\":\"error_code\",\"name\":\"Error_Code\",\"desc\":\"Error code for fault\",\"define\":{\"type\":\"int\",\"unit\":\"\",\"step\":\"1\",\"min\":\"0\",\"max\":\"2000\",\"start\":\"1\"}}]}]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/d794add95b9b447ea66d151a7da4e31d/%E6%B4%97%E7%A2%97%E6%9C%BA.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/d794add95b9b447ea66d151a7da4e31d/%E6%B4%97%E7%A2%97%E6%9C%BA.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 11,
+      "CategoryKey": "Public",
+      "CategoryName": "公共事业",
+      "ParentId": 2,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "",
+      "IconUrlGrid": "",
+      "PanelSettings": []
+    },
+    {
+      "Id": 12,
+      "CategoryKey": "WaterMeter",
+      "CategoryName": "水表",
+      "ParentId": 11,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/61a5422285ec427f0de599933ee88bb4.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/61a5422285ec427f0de599933ee88bb4.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 13,
+      "CategoryKey": "ElectricMeter",
+      "CategoryName": "电表",
+      "ParentId": 11,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/978c8f0c9e0239dbb06a264d7615b3af.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/978c8f0c9e0239dbb06a264d7615b3af.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 14,
+      "CategoryKey": "GasMeter",
+      "CategoryName": "燃气表",
+      "ParentId": 11,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/7092857df2cc4e454b59487ecc3fc39a.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/7092857df2cc4e454b59487ecc3fc39a.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 526,
+      "CategoryKey": "SmartToilet",
+      "CategoryName": "智能马桶",
+      "ParentId": 120,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/d53be1dc2c69dc76a2e1599f2cad8fb8.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/d53be1dc2c69dc76a2e1599f2cad8fb8.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 20,
+      "CategoryKey": "EnviromentMonitor",
+      "CategoryName": "环境监测",
+      "ParentId": 2,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "",
+      "IconUrlGrid": "",
+      "PanelSettings": []
+    },
+    {
+      "Id": 21,
+      "CategoryKey": "WaterQualityMon",
+      "CategoryName": "水质监测",
+      "ParentId": 20,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/a88e7261b09d790045a2015d9e90985d.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/a88e7261b09d790045a2015d9e90985d.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 22,
+      "CategoryKey": "AirQualityMon",
+      "CategoryName": "空气质量监测",
+      "ParentId": 20,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/addee02318bc64feea620f171bafa82a.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/addee02318bc64feea620f171bafa82a.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 23,
+      "CategoryKey": "NoiseMonitor",
+      "CategoryName": "噪声监测",
+      "ParentId": 20,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/b903c11e2e65d9c673bda70d3b3fa601.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/b903c11e2e65d9c673bda70d3b3fa601.png",
+      "PanelSettings": []
+    },
+    {
+      "Id": 24,
+      "CategoryKey": "DustMonitor",
+      "CategoryName": "扬尘检测",
+      "ParentId": 20,
+      "ListOrder": 0,
+      "ModelTemplate": "{\"version\":\"1.0\",\"profile\":{\"productID\":\"*\"},\"properties\":[],\"events\":[]}",
+      "IconUrl": "https://main.qcloudimg.com/raw/b6c615b84930a3e762d05a2345c5acf5.png",
+      "IconUrlGrid": "https://main.qcloudimg.com/raw/b6c615b84930a3e762d05a2345c5acf5.png",
+      "PanelSettings": []
+    }
+  ]
+}
