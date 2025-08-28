@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.entity.LogRecordEntity;
@@ -13,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.List;
 
 /**
  * @author zengyanyu
@@ -40,5 +45,18 @@ public class LogRecordController extends BaseController {
         }
         return logRecordService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
+
+    @ApiOperation("导出Excel文件")
+    @GetMapping("/export")
+    public void export(HttpServletResponse response) throws IOException {
+        response.setContentType("application/vnd.ms-excel");
+        response.setCharacterEncoding("utf-8");
+        // 对中文编码
+        String fileName = URLEncoder.encode("日志文件", "UTF-8");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName + ".xlsx");
+        List<LogRecordEntity> logRecordEntityList = logRecordService.list();
+        EasyExcel.write(response.getOutputStream(), LogRecordEntity.class).sheet("日志记录").doWrite(logRecordEntityList);
+    }
+
 }
 

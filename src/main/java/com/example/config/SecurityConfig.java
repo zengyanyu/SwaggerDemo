@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // 不需要验证的接口
                 .antMatchers("/index.html",
-                        "/getPerson", "/getPersonByYamlData"
+                        "/getPerson", "/getPersonByYamlData", "/log-record/export"
                 ).permitAll()
                 .antMatchers("/**").authenticated() // 其他所有接口需要认证
                 .anyRequest().authenticated() // 所有未匹配的请求也需要认证
