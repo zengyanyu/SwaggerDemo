@@ -9,7 +9,6 @@ import org.hibernate.annotations.Comment;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -23,7 +22,7 @@ import java.time.LocalDateTime;
 @Entity
 @TableName("menu")
 @ApiModel(value = "菜单", description = "菜单")
-public class Menu implements Serializable {
+public class Menu extends BaseEntity {
 
     @TableId(type = IdType.ASSIGN_ID)// 默认雪花算法（分布式ID）
     @Id

@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * 权限 服务类
  *
  * @author zengyanyu
- * @since 2025-08-12
+ * @since 2025-09-10
  */
 public interface IPermissionService extends IService<Permission> {
 

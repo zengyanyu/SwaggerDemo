@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * 用户信息
@@ -21,7 +20,7 @@ import java.io.Serializable;
 @Entity
 @TableName("user_info")
 @ApiModel(value = "用户信息", description = "用户信息")
-public class UserInfo implements Serializable {
+public class UserInfo extends BaseEntity {
 
     @Id
     @ApiModelProperty("主键ID")

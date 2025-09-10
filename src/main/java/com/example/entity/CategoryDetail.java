@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * 产品品类明细
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @Entity
 @TableName("category_detail")
 @ApiModel(value = "产品品类明细", description = "产品品类明细")
-public class CategoryDetail implements Serializable {
+public class CategoryDetail extends BaseEntity {
 
     @Id
     @ApiModelProperty("主键ID")

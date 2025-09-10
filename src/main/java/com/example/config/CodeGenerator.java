@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 import com.example.controller.BaseController;
+import com.example.entity.BaseEntity;
 
 import java.util.Collections;
 import java.util.function.Consumer;
@@ -15,7 +16,7 @@ import java.util.function.Consumer;
 public class CodeGenerator {
 
     public static void main(String[] args) {
-        codeGenerate("permission");
+        codeGenerate("role");
     }
 
     /**
@@ -59,9 +60,8 @@ public class CodeGenerator {
                     builder.addInclude(tableNames);
                     // 建立Entity
                     builder.entityBuilder()
-//                            .enableTableFieldAnnotation()// 启用table字段注解，会显示@TableName
                             // 继承父类
-//                            .superClass(BaseEntity.class)
+                            .superClass(BaseEntity.class)
                             // 不生成的字段（这4个字段，在BaseEntity中已经存在，不在子类中生成，使用继承的方式）
                             .addSuperEntityColumns("create_time", "create_by", "update_time", "update_by")
                             .enableLombok();
