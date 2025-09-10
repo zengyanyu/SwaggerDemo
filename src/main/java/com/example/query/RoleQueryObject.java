@@ -9,5 +9,5 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 @ApiModel("角色查询对象")
-public class RoleQueryObject extends QueryObject{
+public class RoleQueryObject extends QueryObject {
 }
