@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.commons.ResponseData;
 import com.example.config.LogRecord;
 import com.example.entity.Menu;
+import com.example.query.MenuQueryObject;
 import com.example.service.IMenuService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -65,9 +66,9 @@ public class MenuController extends BaseController {
     @LogRecord("菜单分页查询数据")
     @ApiOperation("菜单分页查询数据")
     @GetMapping("/page")
-    public Page<Menu> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    public Page<Menu> page(MenuQueryObject queryObject) {
         QueryWrapper<Menu> wrapper = new QueryWrapper<>();
-        return menuService.page(new Page<>(pageNum, pageSize), wrapper);
+        return menuService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }
 

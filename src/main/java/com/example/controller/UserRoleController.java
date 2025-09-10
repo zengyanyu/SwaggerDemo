@@ -4,20 +4,15 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.commons.ResponseData;
 import com.example.config.LogRecord;
+import com.example.entity.UserRole;
+import com.example.query.UserRoleQueryObject;
+import com.example.service.IUserRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
-
-import com.example.service.IUserRoleService;
-import com.example.entity.UserRole;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
-import com.example.controller.BaseController;
 
 /**
  * @author zengyanyu
@@ -71,9 +66,9 @@ public class UserRoleController extends BaseController {
     @LogRecord("用户关联的角色分页查询数据")
     @ApiOperation("用户关联的角色分页查询数据")
     @GetMapping("/page")
-    public Page<UserRole> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    public Page<UserRole> page(UserRoleQueryObject queryObject) {
         QueryWrapper<UserRole> wrapper = new QueryWrapper<>();
-        return userRoleService.page(new Page<>(pageNum, pageSize), wrapper);
+        return userRoleService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }
 

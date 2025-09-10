@@ -4,19 +4,15 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.commons.ResponseData;
 import com.example.config.LogRecord;
+import com.example.entity.Permission;
+import com.example.query.PermissionQueryObject;
+import com.example.service.IPermissionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.Resource;
 import java.util.List;
-
-import com.example.service.IPermissionService;
-import com.example.entity.Permission;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
-import com.example.controller.BaseController;
 
 /**
  * @author zengyanyu
@@ -70,10 +66,9 @@ public class PermissionController extends BaseController {
     @LogRecord("权限分页查询数据")
     @ApiOperation("权限分页查询数据")
     @GetMapping("/page")
-    public Page<Permission> page(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
+    public Page<Permission> page(PermissionQueryObject queryObject) {
         QueryWrapper<Permission> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
-        return permissionService.page(new Page<>(pageNum, pageSize), wrapper);
+        return permissionService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }
 
