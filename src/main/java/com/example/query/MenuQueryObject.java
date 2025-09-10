@@ -12,4 +12,10 @@ import lombok.ToString;
 @ApiModel("菜单查询对象")
 public class MenuQueryObject extends QueryObject {
 
+    @ApiModelProperty("菜单名称")
+    private String name;
+
+    @ApiModelProperty("菜单路径")
+    private String path;
+
 }

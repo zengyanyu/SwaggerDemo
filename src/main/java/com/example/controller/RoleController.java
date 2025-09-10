@@ -9,6 +9,7 @@ import com.example.query.RoleQueryObject;
 import com.example.service.IRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -68,6 +69,12 @@ public class RoleController extends BaseController {
     @GetMapping("/page")
     public Page<Role> page(RoleQueryObject queryObject) {
         QueryWrapper<Role> wrapper = new QueryWrapper<>();
+        if (StringUtils.isNotEmpty(queryObject.getRoleCode())) {
+            wrapper.like("role_code", queryObject.getRoleCode());
+        }
+        if (StringUtils.isNotEmpty(queryObject.getRoleName())) {
+            wrapper.like("role_name", queryObject.getRoleName());
+        }
         return roleService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }

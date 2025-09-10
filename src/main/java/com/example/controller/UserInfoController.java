@@ -9,6 +9,7 @@ import com.example.query.UserQueryObject;
 import com.example.service.IUserInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -68,6 +69,9 @@ public class UserInfoController extends BaseController {
     @GetMapping("/page")
     public Page<UserInfo> page(UserQueryObject queryObject) {
         QueryWrapper<UserInfo> wrapper = new QueryWrapper<>();
+        if (StringUtils.isNotEmpty(queryObject.getUsername())) {
+            wrapper.like("username", queryObject.getUsername());
+        }
         return userInfoService.page(new Page<>(queryObject.getPageNum(), queryObject.getPageSize()), wrapper);
     }
 }
